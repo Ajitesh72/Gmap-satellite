@@ -24,3 +24,5 @@ yarn-error.log*
 
 config.js
 .env
+
+node_modules
