@@ -11,7 +11,6 @@ function App() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [diameter, setDiameter] = useState(100); // Initial diameter in meters
 
-  // const apiKey = 'AIzaSyCVw6T2ciSUbgd6aOY32WziaWcsWWOi71Y'; // Replace with your Google Maps API key
   const apiKey = process.env.REACT_APP_API_KEY
 
   // Initialize the Google Maps API loader
@@ -76,7 +75,6 @@ function App() {
       {isLoaded && (
         <div>
           <label>Select a location on the map:</label>
-          hii there:{process.env.REACT_APP_API_KEY}     
           <GoogleMap
             mapContainerStyle={containerStyle}
             zoom={100}
