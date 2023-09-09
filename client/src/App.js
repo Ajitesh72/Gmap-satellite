@@ -29,7 +29,7 @@ function App() {
     if (selectedLocation) {
       	
       const earthRadius = 6371; // Earth's radius in km
-      const radiusInKm = 1; // Convert meters to km
+      const radiusInKm =diameter ; // Convert meters to km
 
       const lat = selectedLocation.lat;
       const lng = selectedLocation.lng;
@@ -86,12 +86,12 @@ function App() {
         </div>
       )}
       <div className='diameter'>
-        <label>Diameter (in meters):</label>
-        <input
+        {/* <label>Diameter (in m):</label> */}
+        {/* <input
           type='number'
           value={diameter}
           onChange={(e) => setDiameter(e.target.value)}
-        />
+        /> */}
       </div>
       {isLoaded && (
         <div className='mainContent'>
