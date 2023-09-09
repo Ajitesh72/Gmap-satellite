@@ -77,6 +77,7 @@ function App() {
         <div>
           <label>Select a location on the map:</label>
           hii:{process.env.REACT_APP_API_KEY}
+          
           <GoogleMap
             mapContainerStyle={containerStyle}
             zoom={100}
