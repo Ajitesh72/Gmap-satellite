@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
-import config from './config';
+// import config from './config';
 import "./App.css";
+// import dotenv from 'dotenv';
+
+// Load environment variables
+// dotenv.config();
 
 const containerStyle = {
   width: '100%',
@@ -13,11 +17,12 @@ function App() {
   const [diameter, setDiameter] = useState(100); // Initial diameter in meters
 
   // const apiKey = 'AIzaSyCVw6T2ciSUbgd6aOY32WziaWcsWWOi71Y'; // Replace with your Google Maps API key
+  const apiKey = process.env.REACT_APP_API_KEY
 
   // Initialize the Google Maps API loader
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: config.apiKey,
+    googleMapsApiKey: apiKey,
   });
 
   // Function to handle the map click event
@@ -54,8 +59,8 @@ function App() {
     console.log(bounds)
     if (bounds) {
       // Use the bounds to request an aerial image
-      const imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${selectedLocation.lat},${selectedLocation.lng}&zoom=20&size=800x400&maptype=satellite&sensor=false&key=${config.apiKey}&bounds=${bounds.south},${bounds.west}|${bounds.north},${bounds.east}`;
-      console.log(imageUrl)
+      const imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${selectedLocation.lat},${selectedLocation.lng}&zoom=20&size=800x400&maptype=satellite&sensor=false&key=${process.env.API_KEY}&bounds=${bounds.south},${bounds.west}|${bounds.north},${bounds.east}`;
+      // console.log(imageUrl)
       return imageUrl;
     }
     return null;
